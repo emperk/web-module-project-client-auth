@@ -1,14 +1,27 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
+import PrivateRoute from "./components/PrivateRoute";
+
 import Login from "./components/Login";
+import FriendsList from "./components/FriendsList";
+import axiosWithAuth from "./utils/axiosWithAuth";
 
 import './App.css';
 
 function App(props) {
 
   const logout = () => {
-
+    const token = localStorage.getItem("token")
+    axiosWithAuth()
+      .post("/api/logout")
+      .then(res => {
+        localStorage.removeItem("token");
+        window.location.href = "/login";
+      })
+      .catch(err => {
+        console.log("logout error:", err)
+      })
   };
 
   const isAuth = localStorage.getItem("token");
@@ -33,8 +46,9 @@ function App(props) {
         <h1>Testing App</h1>
 
         <Switch>
+          <PrivateRoute exact path="/protected" component={FriendsList} />
           <Route path="/login" component={Login} />
-          <Route  component={Login} />
+          <Route component={Login} />
         </Switch>
       </div>
     </Router>
