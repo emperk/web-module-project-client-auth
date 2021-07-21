@@ -1,20 +1,17 @@
 import React from "react";
-import axiosWithAuth from "./../utils/axiosWithAuth";
+import { friends } from "./../../../server";
+import FriendsListItem from "./FriendsListItem";
 
-class FriendsList extends React.Component {
-  state = {
-    friends: []
-  }
+const FriendsList = (props) => {
+  const { friends } = props;
 
-  render() {
-    return (
-      <div className="list-of-friends">
-        <div className="title-wrapper">
-          <h2>Friends List API</h2>
-        </div>
-      </div>
-    )
-  }
+  return (
+    <div>
+      {friends?.map((friend) => (
+        <FriendsListItem key={friend.id} friend={friend} />
+      ))}
+    </div>
+  )
 }
 
-export default FriendsList;
+export default FriendsList

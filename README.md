@@ -68,8 +68,7 @@ Topics:
 * In your FriendsList component, rendered with `<ProtectedRoute />`, you will create a list of your friends that you get from the API. -->
 
 
-* [] Create a form that collects data for a new friend
-* [] Make a POST request to add a friend to the database
+
 
 
 **Adding New Friends**
@@ -85,6 +84,16 @@ Topics:
   email: 'joe@lambdaschool.com',
 }
 ```
+
+* [] Create a form that collects data for a new friend
+* [] Make a POST request to add a friend to the database
+* [] Create multiple "view" components for your routes.
+  * ideas:
+    - rendering the login form
+    - updating a user
+    - creating users
+    - deleting users
+
 
 * If you'd like, you can create multiple "view" components for your routes. You could have a component who's sole purpose is to render the login form; one for a form for updating a user; another component who's sole purpose is for creating users; and then another component who's sole purpose is to delete a user.
 * It really is up to you how you build this project. I suggest writing down the flow you want to follow, and then writing down each individual piece you need for each step in the flow so that this process doesn't feel as overwhelming.
