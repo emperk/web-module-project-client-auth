@@ -37,12 +37,39 @@ Topics:
   * **[GET]** to `/api/friends/123`: returns the friend with the id passed as part of the URL (123 in example).
 
 #### Build the App!
+
+* [X] Build Login page 
+  - [X] simple login form 
+    - username input
+    - password input
+    - submit button
+  - [X] Login function should save the returned token to localStorage.
+    - [X] when the request returns, save the token to `localStorage`, then use the history object in your Login component to navigate your user to your FriendsList route
+  - [] *optional* setup `isLoading` state in Login component
+    - show a spinner on form or in button while the login request is happening
+* [X] Add a route for the Login page
+* [X] Create a `<PrivateRoute />` component to protect your other routes
+  - [X] should check localStorage for a token
+  - [X] should redirect the user to your login route if there is not a token.
+* [X] Create a protected route for your friends list.
+  *please note!* if the user isn't logged in, navigating to this protected route will redirect them to the login page.
+* [] In FriendsList component, rendered with `<ProtectedRoute />`, create a list of your friends that you get from the API.
+
+
+<!-- 
 * Add a route for a login page and build out a simple login form with username and password inputs and a submit button (design this however you would like).
 * The login function should save the returned token to localStorage. You can setup `isLoading` state in your Login component, and show a spinner on your form or in your button while the login request is happening.
+
 * When the request returns, save the token to `localStorage`, then use the history object in your Login component to navigate your user to your FriendsList route
+
 * Create a `<PrivateRoute />` component to protect your other routes. It should check localStorage for a token, and redirect the user to your login route if there is not a token.
 * Create a protected route for your friends list. Remember, if the user isn't logged in, navigating to this protected route will redirect them to the login page.
-* In your FriendsList component, rendered with `<ProtectedRoute />`, you will create a list of your friends that you get from the API.
+
+* In your FriendsList component, rendered with `<ProtectedRoute />`, you will create a list of your friends that you get from the API. -->
+
+
+
+
 
 **Adding New Friends**
 * Create a form to collects data for a new friend.
@@ -57,6 +84,16 @@ Topics:
   email: 'joe@lambdaschool.com',
 }
 ```
+
+* [] Create a form that collects data for a new friend
+* [] Make a POST request to add a friend to the database
+* [] Create multiple "view" components for your routes.
+  * ideas:
+    - rendering the login form
+    - updating a user
+    - creating users
+    - deleting users
+
 
 * If you'd like, you can create multiple "view" components for your routes. You could have a component who's sole purpose is to render the login form; one for a form for updating a user; another component who's sole purpose is for creating users; and then another component who's sole purpose is to delete a user.
 * It really is up to you how you build this project. I suggest writing down the flow you want to follow, and then writing down each individual piece you need for each step in the flow so that this process doesn't feel as overwhelming.
